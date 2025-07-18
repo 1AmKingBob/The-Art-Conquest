@@ -1,46 +1,182 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>
+    <title text-alight: center>
         welcome to my world!
     </title>
     <style>
         body {
-            margin: 0;
-            height: 100vh;
-            display: felx;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(to right, rgb(119, 119, 119), rgb(99, 68, 68));
+            background: rgb(43, 154, 182);
+            <!-- background: linear-gradient(to right, rgb(22, 128, 155), rgb(99, 68, 68));-->
             color: white;
         }
+        .top-title {
+            text-align: center;
+            padding-top: 30px;
+        }
+        .center {
+            text-align: center;
+        }
+        .square {
+            width: 300px;
+            Height: 300px;
+            background-color: rgb(255, 255, 255);
+            margin-top: 100px;
+            margin-left: 625px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            animation-duration: 6s;
+            animation-name: spin;
+            animation-timing-function: ease-in-out;
+            animation-delay: 0s;
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            animation-fill-mode: forwards;
+        }
+        @keyframes fadeIn{
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+        .text-inside {
+            opacity: 0;
+            font-size: 1.2rem;
+            animation: fadeIn 2s ease forwards;
+            animation-delay: 7s;
+            position: absolute;
+            text-align: center;
+            color: black;
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+        @keyframes spin{
+            0%{
+
+            }
+            50%{
+                scale: 1.5;
+                transform: rotate(0);
+                border-radius: 0;
+                margin-top: 150px;
+            }
+            75%{
+                border-radius: 50%;
+                scale: 1.2
+            }
+            90%{
+                transform: rotate(360deg);
+                border-radius: 50%;
+                scale: 1.2;
+                width: 300px;
+                Height: 300px;
+                margin-left: 625px;
+                margin-top: 100px;
+            }
+            100%{
+                transform: rotate(360deg);
+                scale: 1.2;
+                border-radius: 10px;
+                width: 700px;
+                Height: 350px;
+                margin-left: 425px;
+                margin-top: 75px;
+            }
+        }
+
+        .contact-page {
+            width: 400px;
+            height: 300px;
+            background-color: rgb(18, 202, 147);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 150px;
+            left: 150px;
+            cursor: default;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        .drag-header {
+            background: rgba(0,0,0,0.2);
+            padding: 5px;
+            font-weight: bold;
+        }
+        .contact-button {
+            border-radius : 50%;
+            opacity: 0;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            animation: fadeIn 2s ease forwards;
+            animation-delay: 7s;
+            position: absolute;
+            top: 250px;
+            left: 150px;
+            cursor: pointer;
+            transition: background-color 0.3 ease;
+        }
+        contact-button:hover {
+            background-color: gray;
+        }
+
     </style>
 </head>
+<script>
+    function openContactPage() {
+        document.getElementById("contactPage").style.display = "flex";
+        contactPage.style.display = "block";
+    }
 
-<body>
-    <h1>WELCOME TO MY WORLD!</h1>
-    <p>This is my blog website where I will be explaining all of my thoughts regarding coding, games, businesses, and a lor more. Hope you'll like it</p>
-    <br /> 
-    <h2>
-        Blog 1: Date (07/18/2025)
-    </h2>
-    <p>
-        Alright, so I have jsut created this website like a couple of minutes ago, and I am trying to figure out how to code in html. I have already tried learnign the language a while ago on codeCademy but it seems like I learn better in stressful environments (Got my retake exams in a couple of weeks). Since I'm on summer break, I am also trying to learn as many other languages as possible, not only coding languages but also chinese and russian on duolingo since I want to sound as harsh as possible, also might be a bit biassed with the chinses after having watched "Crazy Rich Asians". Anyways, this is just a trial on writing my first blog post on my site and hopefully all goes as planned. See you guys in the next one.
-    </p>
-    <br />
-    <h2>
-        Blog 1.5: Same Date
-    </h2>
-    <p>
-        Yo, I'm back, honestly might get absolutly obsessed with this, it's really fun being able to write random stuff on a site you created, this is honestly the reason why I started coding in the first place, being able to create stuff from scratch. Right now I am trying to learn as much as possible about html, how it works, thigns you can do with it, and especially how to make your website safe with cubersecurity. I am already learning averything about the architecture of a computer from my lectures at uni, but I feel like I can learn so much more and so much better from trying stuff on my own. I am a huge game dev enthousiaste, when I first got into coding, it was during a summer camp at tufts university where we had to code our first game project in groups where we ended up coding tetris with pygame. Honestly after that experience, there was absolutly no going back. And that was the reason why I am so obsessed with coding in general, the vibe, working at 3am in a chill environment in your room, being absolutly locked in on what you are creating, and being able to do whatever you want to do with the project you are working on. Anyways, It's now time to get back to learning about html and cybersecurity and all. Peace out and see you guys in the next one.
-    <br />
-    <h2>
-        Blog 2: Same Date
-    </h2>
-    <p>
-        I have jsut created the website and posted it online through github pages, not sure if it's gonna be good or efficient to not just use a normal domain name, but this is free so fuck it. Next up, gonna try to make the website better and more aesthetic for viewers and also gonna try to add some cool aspects for people to be able to not just read my blog posts since it's already boring enough for people to just read random stuff on their "For You Page" on TikTok, I'll keep thinking about it and update you all in a later blog. Once again, see you in the next one.
-    </p>
-    <a href="contact.html"> Visit my contact page </a>
-</body>
+    let newX = 0, NewY = 0, StartX = 0, StartY = 0;
+
+    const contactPage = document.getElementById('contactPage')
+
+    contactPage.addEventListener('mousedown', mouseDown)
+
+    function mouseDown(e){
+        StartX = e.clientX;
+        StartY = e.clientY;
+
+        document.addEventListener('mousemove', mouseMove)
+        document.addEventListener('mouseup', mouseUp)
+    }
+
+    function mouseMove(e){
+        newX = startX - e.clientX
+        newY = startY - e.clientY
+
+        startX = e.clientX
+        startY = e.clientY
+
+        contactPage.style.top = (contactPage.offsetTop - NewY) + "px"
+        contactPage.style.left = (ContactPage.offsetLeft - NewX) + "px"
+    }
+
+    function mouseUp(){
+        document.removeEventListener('mousemove', mouseMove)
+    }
+
+</script>
+<body> 
+    <div class="top-title">
+    <h1> Welcome to my world</h1>
+    </div>
+    <div class="square">
+        <button class="contact-button" style="color:white;" onclick="openContactPage()"> C </button>
+        </div>
+    <div class="contact-page" id="contactPage">
+        
+    </div>
+
+    <br /><br /><br /><br /><br /><br />
+    <div class="center">
+        <a href="contact.html"> Contact page </a> 
+        <a href="blog.html"> Blog </a>
+    </div> 
 
 </html>
