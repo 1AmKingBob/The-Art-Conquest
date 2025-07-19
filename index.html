@@ -98,7 +98,7 @@
             position: fixed;
             top: 150px;
             left: 150px;
-            cursor: default;
+            cursor: grab;
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
         }
         .drag-header {
@@ -114,13 +114,32 @@
             background-color: black;
             animation: fadeIn 2s ease forwards;
             animation-delay: 7s;
-            position: absolute;
+            position: fixed;
             top: 250px;
             left: 150px;
-            cursor: pointer;
+            cursor: grab;
             transition: background-color 0.3 ease;
         }
         contact-button:hover {
+            background-color: gray;
+        }
+        .info-button{
+            border-radius:50%;
+            opacity:0;
+            width:50px;
+            height:50px;
+            display: block;
+            background-color: rgb(43, 210, 157);
+            animation: fadeIn 2s ease forwards;
+            animation-delay:7s;
+            position: absolute;
+            top: 250px;
+            left: 50;
+            cursor: grab;
+            transition: background-color 0.3 ease;
+            user-select: none;
+        }
+        info-button:hover {
             background-color: gray;
         }
 
@@ -129,38 +148,35 @@
 <script>
     function openContactPage() {
         document.getElementById("contactPage").style.display = "flex";
-        contactPage.style.display = "block";
+        contactPage.style.display = "contact-page";
     }
-
-    let newX = 0, NewY = 0, StartX = 0, StartY = 0;
+    function openInfoPage() {
+        document.getElementById("infoPage").style.display = "flex";
+        infoPage.style.display = "info-page";
+    }
 
     const contactPage = document.getElementById('contactPage')
 
-    contactPage.addEventListener('mousedown', mouseDown)
+    let isDragging = false;
+    let offsetX, offsetY;
+    contactPage.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        offsetX = e.clientX - contactPage.offsetLeft;
+        offsetY = e.clientY - contactPage.offsetTop;
+        contactPage.style.cursor = "grabbing";
+    });
 
-    function mouseDown(e){
-        StartX = e.clientX;
-        StartY = e.clientY;
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+        contactPage.style.cursor = "grab";
+    });
 
-        document.addEventListener('mousemove', mouseMove)
-        document.addEventListener('mouseup', mouseUp)
-    }
-
-    function mouseMove(e){
-        newX = startX - e.clientX
-        newY = startY - e.clientY
-
-        startX = e.clientX
-        startY = e.clientY
-
-        contactPage.style.top = (contactPage.offsetTop - NewY) + "px"
-        contactPage.style.left = (ContactPage.offsetLeft - NewX) + "px"
-    }
-
-    function mouseUp(){
-        document.removeEventListener('mousemove', mouseMove)
-    }
-
+    document.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+            contactPage.style.left = '${e.clientX - offsetX}px';
+            contactPage.style.top = '${e.clientY - offsetY}px';
+        }
+    });
 </script>
 <body> 
     <div class="top-title">
@@ -168,8 +184,12 @@
     </div>
     <div class="square">
         <button class="contact-button" style="color:white;" onclick="openContactPage()"> C </button>
+        <button class="info-button" style="color:white;" onclick="openContactPage()"> I </button>
         </div>
     <div class="contact-page" id="contactPage">
+        
+    </div>
+    <div class="info-page" id="infoPge">
         
     </div>
 
